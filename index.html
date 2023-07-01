@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coupon Wheel</title>
+  <style>
+    /* CSS styling for the coupon wheel container */
+    .wheel-container {
+      width: 200px;
+      height: 200px;
+      background-color: #f7f7f7;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 2s ease-in-out;
+    }
+
+    .wheel-container:hover {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="wheel-container">
+    <h1>Click to Spin the Wheel</h1>
+  </div>
+
+  <script>
+    // JavaScript code for spinning the wheel and determining the coupon prize
+    var spinCount = 0;
+
+    function spinWheel() {
+      var wheelContainer = document.querySelector('.wheel-container');
+
+      if (spinCount === 0) {
+        // First spin - show "try again" message
+        wheelContainer.innerHTML = "<h1>Try again</h1>";
+      } else if (spinCount === 1) {
+        // Second spin - show the gift card
+        wheelContainer.innerHTML = "<h1>Congratulations! You won a gift card!</h1>";
+      } else {
+        // Additional spins if needed
+      }
+
+      spinCount++;
+    }
+
+    // Add event listener to trigger the spinWheel function
+    var wheelContainer = document.querySelector('.wheel-container');
+    wheelContainer.addEventListener('click', spinWheel);
+  </script>
+</body>
+</html>
